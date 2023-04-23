@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+<h3>Kayıt Ol</h3>
+<hr>
+
+<form method="POST">
+    
+    {{ render_field(form.name,class="input-group-text", placeholder="Isim Soyisim") }}  
+    {{ render_field(form.username,class="input-group-text", placeholder="Kullanıcı Adı") }}  
+    {{ render_field(form.email,class="input-group-text", placeholder="E-Posta") }}
+    {{ render_field(form.school,class="input-group-text", placeholder="Eğitim Gördüğünüz Kurum") }}
+    {{ render_field(form.password,class="input-group-text", placeholder="Parola") }}
+    {{ render_field(form.confirm,class="input-group-text", placeholder="Parola Tekrar") }}
+    <label>
+      {{form.checkbox}}
+      Üyelik oluşturduğunuzda <a href="/contract">üyelik sözleşmesini </a> okuduğunuzu ve kabul ettiğinizi onaylıyorsunuz.
+    </label>
+    <label>
+        <br>
+      <input type="checkbox" value="1" >
+      İletişim bilgilerime e-ileti gönderilmesine izin veriyorum.</label><br>
+     <label>
+
+<br>
+    <button type="submit" class="btn btn-secondary">Kayıt Ol</button>
+    
+  </form>
+<hr>
+<p>
+    Zaten Üye misin? <a  href="/login">Giriş Yap</a>
+</p>
+
+{% endblock body %}
+
+

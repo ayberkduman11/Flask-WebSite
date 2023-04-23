@@ -1,0 +1,412 @@
+{{profile.namesurname}}
+
+<div class="container rounded bg-white mt-5">
+        <div class="row">
+            <div class="col-md-4 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://i.imgur.com/0eg0aG0.jpg" width="90"><span class="font-weight-bold">John Doe</span><span class="text-black-50">john_doe12@bbb.com</span><span>United States</span></div>
+            </div>
+            <div class="col-md-8">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                            <h6>Back to home</h6>
+                        </div>
+                        <h6 class="text-right">Edit Profile</h6>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="first name" value="John"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" value="Doe" placeholder="Doe"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="john_doe12@bbb.com"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" value="+19685969668" placeholder="Phone number"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="address" value="D-113, right avenue block, CA,USA"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" value="USA" placeholder="Country"></div>
+                    </div>
+                    
+                    <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<input id="name" type="text" autocomplete="name" placeholder="Ad" class="ng-pristine ng-valid ng-touched">
+
+<input type="checkbox" onclick="myFunction()">Show Password
+            
+            
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sample</title>
+  </head>
+  <body>
+    <form method="POST" action="/">
+  {{ form.hidden_tag() }}
+  {{ form.name.label }} {{ form.name(size=20) }}
+  <input type="submit" value="Go">
+  <button type="button" name="">Show Password</button> <! –– Using this button, toggle password visibilty -- !>
+</form>
+  </body>
+</html>
+
+
+<h1 class="text-heading-xlarge inline t-24 v-align-middle break-words">Ayberk Duman</h1>
+
+<div class="city">
+    <h2>Tokyo</h2>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+
+
+
+
+
+  % if profile %}
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            {% for profile in profile %}
+            <div class="d-flex flex-column align-items-center text-center p-3 py-4"><img class="rounded-circle mt-5" src="/templates/images/cartman.png" width="90"><span class="font-weight-bold">{{session ["username"]}}</span></div>
+            {% endfor %}
+            <div class="row mt-2">
+                <div class="col-md-6"><h6>Takip ediliyor</h6></div>
+                <div class="col-md-6"><h6>Takiçi</h6></div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>   
+            </div>    
+        </div> 
+        
+        
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    {% for profile in profile %}
+                    <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                        <h6>{{users.namesurname}}</h6>
+                    </div>
+                    {% endfor %}
+                    <button type="button"  class="btn btn-dark"  href="/editprofile">Profilini Güncelle</button>
+                    
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="first name" value="John"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="Doe" placeholder="Doe"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="john_doe12@bbb.com"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="+19685969668" placeholder="Phone number"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="address" value="D-113, right avenue block, CA,USA"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="USA" placeholder="Country"></div>
+                </div>
+                
+                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            </div>
+        </div>
+
+    </div>  
+</div>
+
+{% else %}
+{% endif %}
+
+
+
+
+{% block body %}
+{% if profile %}
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            {% for profile in profile %}
+            <div class="d-flex flex-column align-items-center text-center p-3 py-4"><img class="rounded-circle mt-5" src="/templates/images/cartman.png" width="90"><span class="font-weight-bold">{{session ["username"]}}</span></div>
+            {% endfor %}
+            <div class="row mt-2">
+                <div class="col-md-6"><h6>Takip ediliyor</h6></div>
+                <div class="col-md-6"><h6>Takiçi</h6></div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>   
+            </div>    
+        </div> 
+        
+        
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    {% for profile in profile %}
+                    <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                        <h6>{{.namesurname}}</h6>
+                    </div>
+                    {% endfor %}
+                    <button type="button"  class="btn btn-dark"  href="/editprofile">Profilini Güncelle</button>
+                    
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="first name" value="John"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="Doe" placeholder="Doe"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="john_doe12@bbb.com"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="+19685969668" placeholder="Phone number"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="address" value="D-113, right avenue block, CA,USA"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="USA" placeholder="Country"></div>
+                </div>
+                
+                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            </div>
+        </div>
+
+    </div>  
+</div>
+
+{% else %}
+{% endif %}
+
+def delete_product(id):
+    #create cursor
+    cur = mysql.connection.cursor()
+
+    #execute
+    cur.execute("DELETE FROM products WHERE product_id=%s", [id])
+
+    #commit to DB
+    mysql.connection.commit()
+
+    #close connection
+    cur.close()
+
+    flash("Product Deleted", "success")
+
+    return redirect(url_for('products'))
+
+
+    cursor = mysql.connection.cursor()
+    sorgu = "Select * from users where email = %s and id = %s "
+    result = cursor.execute(sorgu,(session["username"],id))
+
+    if result<0:
+        sorgu2="Delete from users where id = %s"
+
+        cursor.execute(sorgu2,(id,))
+
+        mysql.connection.commit()
+
+        return redirect(url_for("index"))
+
+    else:
+        flash("Bu sayfayı görebilmek için yetkiniz yok","danger")
+        return redirect(url_for("login"))
+
+
+
+        def delete(id):
+   cur = mysql.connection.cursor()
+   cur.execute("DELETE FROM people WHERE id=%s", (id))
+
+   mysql.connection.commit()
+   return redirect('/')
+
+
+
+   @app.route("/delete/<string:id>")
+
+   @app.route("/delete/<string:id>")
+@login_required
+def delete(id):
+    cursor = mysql.connection.cursor()
+
+    sorgu = "Select * from articles where author = %s and id = %s "
+
+    result = cursor.execute(sorgu,(session["username"],id))
+
+    if result<0:
+        sorgu2="Delete from articles where id = %s"
+
+        cursor.execute(sorgu2,(id,))
+
+        mysql.connection.commit()
+
+        return redirect(url_for("dashboard"))
+
+
+
+        cur.execute("DELETE FROM people WHERE id={}".format(id))
+
+
+
+
+        #Edit Profile
+@app.route("/edit/<string:id>", methods=["GET","POST"])
+@login_required
+def update(id):
+    if request.method=="GET":
+        cursor=mysql.connection.cursor()
+        sorgu="Select * from profile where id =%s and author=%s"
+        result= cursor.execute(sorgu,(id,session["username"]))
+
+        if result==0:
+            flash("Böyle bir işleme yetkiniz yok","danger")
+            return redirect(url_for("index"))
+
+        else:
+            profile= cursor.fetchone()
+            form=EditProfileForm
+
+            form.namesurname.data = profile["namesurname"]
+            form.birthday.data= profile["birthday"]
+            form.gender.data = profile["gender"]
+            form.phonenumber.data= profile["phonenumber"]
+            form.city.data = profile["city"]
+            form.adress.data= profile["adress"]
+            form.school.data = profile["school"]
+            form.unvan.data= profile["unavan"]
+            form.content.data = profile["content"]
+            return render_template("editprofile.html",form=form)
+
+    else:
+        form= EditProfileForm(request.form)
+
+        newNamesurname = form.namesurname.data
+        newBirthday = form.birthday.data
+        newGender = form.gender.data
+        newPhonenumber = form.phonenumber.data
+        newcity = form.city.data
+        newAdress = form.adress.data
+        newSchool = form.school.data
+        newUnvan = form.unvan.data
+        newContent = form.content.data
+
+        sorgu2="Update profile Set namesurname=%s, birhtday=%s, gender=%s, phonenumber=%s, city=%s, adress=%s, school=%s,unvan=%s,content=%s where id=%s"
+        cursor.execute(sorgu2,(newNamesurname,newBirthday,newGender,newPhonenumber,newcity,newAdress,newSchool,newUnvan,newContent,id))
+        cursor=mysql.connection.cursor()
+
+
+        mysql.connection.commit()
+
+        flash("Profiniz başarıyla güncellendi...","success")
+        return redirect(url_for("profile"))
+
+
+
+
+        
+
+
+
+
+
+
+        @app.route('/delete_account', methods=['POST'])
+@is_logged_in
+def delete_account():
+    cur = mysql.connection.cursor()
+    username = session['username']
+    cur.execute("DELETE FROM users WHERE username = %s", [username])
+    cur.execute("DELETE FROM articles WHERE author = %s", [username])
+    mysql.connection.commit()
+    cur.close()
+    try:
+        dir = r"C:\Users\OSAMA\Desktop\final\static\uploads\users\{}".format(session['username'])
+        rmtree(dir)
+        session.clear()
+        flash('Your Account Has Been Deleted Successfully', 'success')
+    except:
+        session.clear()
+        flash('Your Account Has Been Deleted Successfully', 'success')
+    return render_template('home.html')
+
+
+
+
+
+    @app.route('/delete/<int:id>')
+@login_required
+def delete(id):
+    cursor=mysql.connection.cursor()
+
+    sorgu= "Select * from users where email=%s and id=%s"
+
+    result =cursor.execute(sorgu,(session["username"],id))
+
+    if result >0:
+        sorgu2= "Delete from users where id=%s "
+        cursor.execute(sorgu2,(id,))
+
+        mysql.connection.commit()
+
+        return redirect(url_for("index"))
+
+    else:
+        flash("kim derdi","danger")
+
+        return redirect(url_for("contact"))
+
+
+
+
+
+        if not check_password_hash(result[0], form.old_password.data):
+        form.old_password.errors.append('Incorrect password')
+        flash("adssdasa")
+        return render_template("change-password")
+
+        
+
+
+
+
+
+
+        
+
+
+        cur.execute('SELECT password FROM users WHERE username = %s ', (session['username'],))
+
+
+        @app.route('/change_password', methods=['GET', 'POST'])
+        def change_password():
+            form = ChangePasswordForm()
+            if form.validate_on_submit():
+                current_password = form.current_password.data
+                new_password = form.new_password.data
+        
+                # Get the current user's password from MySQL
+                cur = mysql.connection.cursor()
+                cur.execute("SELECT password FROM users WHERE id = %s", (current_user.id,))
+                result = cur.fetchone()
+                cur.close()
+        
+                if result and sha256_crypt.verify(current_password, result['password']):
+                    # Hash the new password using sha256_crypt
+                    hashed_password = sha256_crypt.hash(new_password)
+        
+                    # Update the user's password in MySQL
+                    cur = mysql.connection.cursor()
+                    cur.execute("UPDATE users SET password = %s WHERE id = %s", (hashed_password, current_user.id))
+                    mysql.connection.commit()
+                    cur.close()
+        
+                    flash('Your password has been changed successfully.', 'success')
+                    return redirect(url_for('dashboard'))
+        
+                else:
+                    flash('Incorrect password. Please try again.', 'error')
+                    return redirect(url_for('change_password'))
+        
+            return render_template('change_password.html', form=form)
+            
+        

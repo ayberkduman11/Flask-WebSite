@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+<div>
+    <center>
+        <h1>Top Kullanıcı Listesi</h1>
+    </center>
+    <hr>
+    <div>
+        <center>
+          {% if not session ["logged_in"] == True %}
+          <p>   
+            Sende bu listenin en üstünde bulunmak istiyorsan <a href="/register">üye ol</a>.
+           </p>
+          {% else %}
+          {% endif %}
+        </center>
+    </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Kullanıcı Adı</th>
+      <th scope="col">Meslek</th>
+      <th scope="col">Puan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Lider</th>
+      <td>aykdmn11</td>
+      <td>Öğretmen</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">İkinci</th>
+      <td>aykdmn11</td>
+      <td>Öğretmen</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">Üçüncü</th>
+      <td>aykdmn11</td>
+      <td>Öğretmen</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock body %}

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <a class="navbar-brand"  href="/">ADBLOG</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Left--> 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/topusers">Liderler Tablosu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">Hakkimizda</a>
+      </li>
+    </ul>
+
+<!--Right--> 
+{% if session ["logged_in"] == True  %}
+<a class="nav-link" href="/profile">
+  {{session ["username"]}}
+</a>
+
+{% else %}
+{% endif %}
+
+
+
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    AD MENU
+  </button>
+  
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    
+    {% if session ["logged_in"] == True %}
+    <a class="dropdown-item" href="/profile">Profil</a> 
+    <a class="dropdown-item" href="/settings">Ayarlar</a>
+    {% else %}
+    <a class="dropdown-item" href="/login">Giriş Yap</a>  
+    <a class="dropdown-item" href="/register">Kayıt Ol</a>
+    {% endif %}  
+    <a class="dropdown-item" href="/contact">İletişim</a>
+    {% if  session ["logged_in"] == True %}
+    <a class="dropdown-item" href="/logout">Çıkış yap</a> 
+    {% else %}
+    {% endif %}
+
+  </div>
+</div>
+</div>
+</nav>
+
+
+    
+
+
+

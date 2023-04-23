@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+<h1>Giriş Yap</h1>
+<hr>
+
+
+<form method="POST">
+    {{ render_field(form.username,class="input-group-text", placeholder="Kullanıcı Adı") }}  
+    {{ render_field(form.password,class="input-group-text", placeholder="Parola") }}
+<br>
+    <button type="submit" class="btn btn-secondary">Giriş Yap</button>
+</form>
+<hr>
+<p>
+    Kayıt Olmak için <a  href="/register">Tıklayın</a>
+</p>
+{% endblock body %}

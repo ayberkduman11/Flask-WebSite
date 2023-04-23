@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %}
+<h1>Profilini Düzenle</h1>
+<hr>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ render_field(form.namesurname,class="input-group-text", placeholder="Isim Soyisim") }}  
+    {{ render_field(form.birthday,class="input-group-text", placeholder="Dogum Tarihiniz") }}
+    {{ render_field(form.gender,class="input-group-text", placeholder="Cinsiyet") }}
+    {{ render_field(form.phonenumber,class="input-group-text", placeholder="Telefon Numaranız") }}
+    {{ render_field(form.city,class="input-group-text", placeholder="Yaşadığınız Şehir") }}
+    {{ render_field(form.adress,class="input-group-text", placeholder="Adres") }}
+    {{ render_field(form.school,class="input-group-text", placeholder="Eğitim gördüğünüz kurum") }}
+    {{ render_field(form.unvan,class="input-group-text", placeholder="Meslek") }}
+    {{ render_field(form.content,class="input-group-text", placeholder="Biyografiniz") }}
+
+    
+<br>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>
+<hr>
+ 
+
+{% endblock body %}

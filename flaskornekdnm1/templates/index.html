@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class = "jumbotron text-center">
+    <h1>
+        AD BLOG HOŞGELDINIZ
+    </h1>
+    <center>
+        <form >
+            <input type="text" name="searchText" size="50" maxlength="120" 
+            class="search-form__input ng-pristine ng-invalid ng-touched" placeholder="Ödev,kullanıcı yada ne istersen...">
+            <button class="btn btn-dark " size="100" length="100" type="submit">Ara</button>
+            
+        </form>
+ 
+    </center>
+    
+</div>
+
+
+{% endblock body %}
+
+
+<form id="search-autocomplete" class="form-outline my-2 my-lg-0" maxlength="100">
+    <input class="form-control" type="search" placeholder="Ödev,kullanıcı yada ne istersen..." aria-label="Search">
+    <button class="btn btn-dark" type="submit">Ara</button>
+  </form>
+
+  <input type="text" name="searchText" autocomplete="off" maxlength="100"
+   class="search-form__input ng-pristine ng-invalid ng-touched" placeholder="hangi hizmeti arıyorsun?" autofocus="" required="">
+

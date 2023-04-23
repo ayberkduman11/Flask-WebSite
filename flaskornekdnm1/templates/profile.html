@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% if profile %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            {% for profile in profile %}
+            
+            <div class="d-flex flex-column align-items-center text-center p-3 py-4"><img class="rounded-circle mt-5" src="/templates/images/cartman.png" width="90"><span class="font-weight-bold">{{session ["username"]}}</span></div>
+            {% endfor %}
+            <div class="row mt-2">
+                <div class="col-md-6"><h6>Takip ediliyor</h6></div>
+                <div class="col-md-6"><h6>Takiçi</h6></div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>
+                <div class="col-md-6">
+                    <th>0</th>
+                </div>   
+            </div>    
+        </div> 
+        {% for profile in profile %}
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                        <h2 href="/profile">{{profile.namesurname}}</h2>
+                    </div>
+                    <h4 class="text-right">Online</h4>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h6>{{profile.unvan}}</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-right">{{profile.school}}</h6>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <h6>{{profile.city}}</h6> 
+                    </div>    
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <br>
+                        <p>{{profile.content}}</p>
+                    </div>
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="mt-5 text-right">
+                    <form id="delete-account-form" action="{{ url_for('delete_account', username=session.username) }}" method="post">
+                      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#delete-account-modal">Hesabı Sil</button>
+                      <a href="editprofile/{{profile.id}}">
+                        <button class="btn btn-dark" type="button">Profili Düzenle</button>
+                      </a>
+                    </form>
+                    <br>
+                    <a href="/change-password">
+                      <button class="btn-default" type="button">Şifreyi Değiştir</button>
+                    </a>
+                    <div class="modal fade" id="delete-account-modal" tabindex="-1" role="dialog" aria-labelledby="delete-account-modal-label" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="delete-account-modal-label">Hesabı Sil</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <form action="{{ url_for('delete_account', username=session.username) }}" method="post">
+                            <div class="modal-body text-left">
+                              <p>Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                              <button id="delete-account-button" type="submit" class="btn btn-danger">Hesabı Sil</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <script>
+                    $('#delete-account-modal').on('show.bs.modal', function (event) {
+                      var button = $(event.relatedTarget);
+                      var modal = $(this);
+                      modal.find('form').attr('action', button.attr('href'));
+                    });
+                    $('#delete-account-button').on('click', function () {
+                      $('#delete-account-form').submit();
+                    });
+                  </script>
+                  
+            </div>
+        </div>
+        
+        
+        {% endfor %}
+    </div>  
+</div>
+
+
+{% else %}
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+
